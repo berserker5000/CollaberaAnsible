@@ -1,0 +1,19 @@
+---
+- name: Work with URLs
+  hosts: 127.0.0.1
+  connection: local
+  gather_facts: No
+
+  vars:
+    API_KEY: at_YYMd0kJCYOUecLN2vznzko8SCqXaD
+    MACADDRESS: 44:38:39:ff:ef:57
+
+  tasks:
+  - name: Get url response
+    uri:
+      url: "https://api.macaddress.io/v1?apiKey={{ API_KEY }}&output=json&search={{ MACADDRESS }}"
+      return_content: yes
+      method: GET
+    register: json_response
+
+  - debug: msg="Your macaddress belongs to the company called {{ (json_response.content|from_json)["vendorDetails"]["companyName"] }}"
