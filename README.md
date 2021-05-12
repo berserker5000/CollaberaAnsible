@@ -1,4 +1,4 @@
-##MACADDRESS company retrieving
+<h2>MACADDRESS company retrieving</h2>
 
 To use this ansible script please make sure you have ansible installed on your computer (https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
